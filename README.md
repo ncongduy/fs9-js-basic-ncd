@@ -1,6 +1,7 @@
 # Todo List
 
 Create a todo list using only html, css and javascript. Styling can be minimal and focus on javascript instead
+You can also configure and use sass.
 
 ## Requirements
 
