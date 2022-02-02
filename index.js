@@ -11,11 +11,7 @@ function createItem() {
 	if (input.value.length === 0) return;
 
 	const li = document.createElement('li');
-
-	li.innerHTML = `
-          <input type="checkbox" id="example1">
-          <label for="example1">${input.value}</label>
-          <span>x</span>`;
+	li.innerHTML = `<p>${input.value} <span>x</span></p>`;
 	list.appendChild(li);
 }
 
@@ -39,3 +35,14 @@ function handleDeleteAll() {
 }
 
 removeBtn.addEventListener('click', handleDeleteAll);
+
+// when user click x element
+function handleDeleteItem(evt) {
+	if (evt.target.nodeName !== 'SPAN') return;
+
+	const pElement = evt.target.parentElement;
+	const liElement = pElement.parentElement;
+	list.removeChild(liElement);
+}
+
+list.addEventListener('click', handleDeleteItem);
