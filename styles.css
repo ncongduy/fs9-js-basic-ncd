@@ -1,0 +1,14 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
+.list__item > p {
+  display: inline-block;
+  width: 200px;
+}
+
+.list__item__p--toggle {
+  text-decoration: line-through;
+}

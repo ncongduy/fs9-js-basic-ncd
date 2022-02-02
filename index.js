@@ -11,7 +11,8 @@ function createItem() {
 	if (input.value.length === 0) return;
 
 	const li = document.createElement('li');
-	li.innerHTML = `<p>${input.value} <span>x</span></p>`;
+	li.className = 'list__item';
+	li.innerHTML = `<p>${input.value}</p><span>x</span>`;
 	list.appendChild(li);
 }
 
@@ -40,9 +41,18 @@ removeBtn.addEventListener('click', handleDeleteAll);
 function handleDeleteItem(evt) {
 	if (evt.target.nodeName !== 'SPAN') return;
 
-	const pElement = evt.target.parentElement;
-	const liElement = pElement.parentElement;
+	const liElement = evt.target.parentElement;
 	list.removeChild(liElement);
 }
 
 list.addEventListener('click', handleDeleteItem);
+
+// when user click item inside list
+function handleToggleItem(evt) {
+	if (evt.target.nodeName !== 'P') return;
+
+	const currentElement = evt.target;
+	currentElement.classList.toggle('list__item__p--toggle');
+}
+
+list.addEventListener('click', handleToggleItem);
