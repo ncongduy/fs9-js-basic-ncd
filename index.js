@@ -12,7 +12,7 @@ function createItem() {
 
 	const li = document.createElement('li');
 	li.className = 'list__item';
-	li.innerHTML = `<p>${input.value}</p><span>x</span>`;
+	li.innerHTML = `<i class="fas fa-check"></i><p>${input.value}</p><span>x</span>`;
 	list.appendChild(li);
 }
 
@@ -53,6 +53,10 @@ function handleToggleItem(evt) {
 
 	const currentElement = evt.target;
 	currentElement.classList.toggle('list__item__p--toggle');
+
+	const parentElement = currentElement.parentElement;
+	const iElement = parentElement.querySelector('i');
+	iElement.classList.toggle('list__item__i--open');
 }
 
 list.addEventListener('click', handleToggleItem);

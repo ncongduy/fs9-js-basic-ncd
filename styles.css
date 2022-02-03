@@ -9,6 +9,14 @@
   width: 200px;
 }
 
+.list__item > i {
+  display: none;
+}
+
+.list__item > i.list__item__i--open {
+  display: inline-block;
+}
+
 .list__item__p--toggle {
   text-decoration: line-through;
 }
