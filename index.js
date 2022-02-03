@@ -1,6 +1,5 @@
 // declare global variable
 const $ = document.querySelector.bind(document);
-const $$ = document.querySelectorAll.bind(document);
 const addBtn = $('.input__form button');
 const input = $('.input__form input');
 const list = $('.list ul');
@@ -12,7 +11,10 @@ function createItem() {
 
 	const li = document.createElement('li');
 	li.className = 'list__item';
-	li.innerHTML = `<i class="fas fa-check"></i><p>${input.value}</p><span>x</span>`;
+	li.innerHTML = `<i class="fas fa-check"></i>
+									<p>${input.value}</p>
+									<span>x</span>`;
+
 	list.appendChild(li);
 }
 
@@ -51,11 +53,13 @@ list.addEventListener('click', handleDeleteItem);
 function handleToggleItem(evt) {
 	if (evt.target.nodeName !== 'P') return;
 
-	const currentElement = evt.target;
-	currentElement.classList.toggle('list__item__p--toggle');
+	const pElement = evt.target;
+	pElement.classList.toggle('list__item__p--toggle');
 
-	const parentElement = currentElement.parentElement;
-	const iElement = parentElement.querySelector('i');
+	const liElement = pElement.parentElement;
+	liElement.classList.toggle('list__item--toggle');
+
+	const iElement = liElement.querySelector('i');
 	iElement.classList.toggle('list__item__i--open');
 }
 
